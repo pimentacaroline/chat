@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, TextInput, ImageBackground } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, TextInput, ImageBackground, KeyboardAvoidingView } from 'react-native';
 
 //Define path for the image bachground
 const image = require('../assets/Background.png');
@@ -21,7 +21,7 @@ const Start = ({ navigation }) => {
 	return (
 		<View style={styles.container}>
 			<ImageBackground source={image} resizeMode="cover" style={styles.image}>
-				<Text style={styles.appTitle}>Chat App</Text>
+				<Text style={styles.appTitle}>Chatuy App</Text>
 				<View style={styles.inputContainer}>
 
 					<TextInput
@@ -81,6 +81,9 @@ const Start = ({ navigation }) => {
 				</View>
 
 			</ImageBackground>
+
+			{/* Prevents keyboard to cover the screen */}
+			{Platform.OS === 'ios' ? <KeyboardAvoidingView behavior="padding" /> : null}
 		</View>
 	);
 }
