@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { StyleSheet, KeyboardAvoidingView, Platform, View } from 'react-native';
+import { KeyboardAvoidingView, Platform, View } from 'react-native';
 import { GiftedChat, Bubble } from "react-native-gifted-chat";
 import { collection, addDoc, onSnapshot, query, orderBy } from "firebase/firestore";
 
@@ -52,15 +52,6 @@ const Chat = ({ route, navigation, db }) => {
       }}
     />
   }
-
-  // Component stylesheet
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center'
-    }
-  });
 
   //Render the chat ineterface
   return (

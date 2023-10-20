@@ -17,7 +17,7 @@ const backgroundColors = {
 const Start = ({ navigation }) => {
 
 	const [name, setName] = useState('');
-	const [color, setColor] = useState(backgroundColors);
+	const [color, setColor] = useState(backgroundColors.green);
 	const auth = getAuth();
 
 	const signInUser = () => {
@@ -26,6 +26,7 @@ const Start = ({ navigation }) => {
         navigation.navigate("Chat", {
           name: name,
           userID: result.user.uid,
+					color: color,
         });
         Alert.alert("Signed in Successfully!");
       })
