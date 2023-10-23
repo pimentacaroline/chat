@@ -69,7 +69,7 @@ const Chat = ({ route, navigation, db, isConnected }) => {
           backgroundColor: "#000"
         },
         left: {
-          backgroundColor: "#FFF"
+          backgroundColor: "#fff"
         }
       }}
     />

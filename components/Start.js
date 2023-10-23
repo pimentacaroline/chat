@@ -7,10 +7,10 @@ const image = require('../assets/Background.png');
 
 // Define backgrounds colors that users can choose
 const backgroundColors = {
-	lila: '#eab6fd',
-	yellow: '#FFD777',
-	blue: '#8A95A4',
-	green: '#BAC5AE',
+	lila: '#FBC5B6',
+	yellow: '#FCA55B',
+	blue: '#58A6BB',
+	green: '#6D8D81',
 }
 
 // Starting page component
@@ -38,7 +38,7 @@ const Start = ({ navigation }) => {
 	return (
 		<View style={styles.container}>
 			<ImageBackground source={image} resizeMode="cover" style={styles.image}>
-				<Text style={styles.appTitle}>Chat App</Text>
+				<Text style={styles.appTitle}></Text>
 				<View style={styles.inputContainer}>
 
 					<TextInput
@@ -124,9 +124,10 @@ const styles = StyleSheet.create({
 	},
 	inputContainer: {
 		flex: 1,
-		backgroundColor: '#FFFFFF',
+		backgroundColor: '#fcf6f1',
 		padding: '6%',
 		flexBasis: 160,
+		borderRadius: 12
 	},
 	textInput: {
 		fontSize: 16,
@@ -161,13 +162,15 @@ const styles = StyleSheet.create({
 	},
 	button: {
 		alignContent: 'center',
-		backgroundColor: '#757083',
+		backgroundColor: '#d1544c',
 		padding: 20,
+		borderRadius: 8,
 	},
 	buttonText: {
 		color: '#FFFFFF',
 		fontWeight: 'bold',
 		textAlign: 'center',
+		fontSize: 20,
 	},
 });
 

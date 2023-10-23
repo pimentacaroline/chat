@@ -56,7 +56,7 @@ const App = () => {
         initialRouteName="Start"
       >
         <Stack.Screen
-          name="Start"
+          name="Chat App"
           component={Start}
         />
         <Stack.Screen name="Chat">
