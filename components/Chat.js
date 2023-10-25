@@ -23,7 +23,7 @@ const Chat = ({ route, navigation, db, isConnected, storage }) => {
       unsubMessages = null;
 
       const q = query(collection(db, "messages"), orderBy("createdAt", "desc"));
-        unsubMessages = onSnapshot(q, (docs) => {
+      unsubMessages = onSnapshot(q, (docs) => {
         let newMessages = [];
         docs.forEach(doc => {
           newMessages.push({
@@ -39,7 +39,7 @@ const Chat = ({ route, navigation, db, isConnected, storage }) => {
 
     // Clean up code
     return () => {
-      if (unsubMessages) {unsubMessages();}
+      if (unsubMessages) { unsubMessages(); }
     };
   }, [isConnected]);
 
@@ -86,21 +86,23 @@ const Chat = ({ route, navigation, db, isConnected, storage }) => {
   }
 
   const renderCustomView = (props) => {
-    const { currentMessage} = props;
+    const { currentMessage } = props;
     if (currentMessage.location) {
       return (
-          <MapView
-            style={{width: 150,
-              height: 100,
-              borderRadius: 13,
-              margin: 3}}
-            region={{
-              latitude: currentMessage.location.latitude,
-              longitude: currentMessage.location.longitude,
-              latitudeDelta: 0.0922,
-              longitudeDelta: 0.0421,
-            }}
-          />
+        <MapView
+          style={{
+            width: 150,
+            height: 100,
+            borderRadius: 13,
+            margin: 3
+          }}
+          region={{
+            latitude: currentMessage.location.latitude,
+            longitude: currentMessage.location.longitude,
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421,
+          }}
+        />
       );
     }
     return null;

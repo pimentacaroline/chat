@@ -13,7 +13,7 @@
   - [Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
-  - [Live Demo](#live-demo)
+  - [Project Setup](#setup)
 - [Author](#authors)
 
 <!-- PROJECT DESCRIPTION -->
@@ -50,9 +50,41 @@ and location data.
 
 <!-- LIVE DEMO -->
 
-## 🚀 Live Demo <a name="live-demo"></a>
+## Project Setup <a name="setup"></a>
 
-- [Live Demo Link - coming soon](#)
+Create a new project with React Native:
+```shell
+npx create-expo-app chat_app --template
+```
+
+Install Expo Globally:
+```shell
+npm install - expo-cli
+```
+
+To startup Expo:
+```shell
+expo start
+```
+### Database Setup
+
+To set up a database for this project: 
+1. Create and sign-up for a database on https://firebase.google.com/
+2. install firebase in your project directory: npm install firebase.
+3. import personal firebase config from project settings tab in firebase console into App.js (replace existing code).
+4. within firebase database rules adjust `allow read, write: if false;` to `allow read, write: if true;`, then publish.
+
+
+### Android Studio
+
+To utilize features of the app within the android studio emulator install these libraries in your project directory:
+
+```shell
+expo install expo-image-picker
+expo install react-native-maps
+expo install expo-location
+expo install expo-media-library
+```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

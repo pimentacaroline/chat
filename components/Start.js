@@ -21,20 +21,20 @@ const Start = ({ navigation }) => {
 	const auth = getAuth();
 
 	const signInUser = () => {
-    signInAnonymously(auth)
-      .then((result) => {
-        navigation.navigate("Chat", {
-          name: name,
-          userID: result.user.uid,
+		signInAnonymously(auth)
+			.then((result) => {
+				navigation.navigate("Chat", {
+					name: name,
+					userID: result.user.uid,
 					color: color,
-        });
-        Alert.alert("Signed in Successfully!");
-      })
-      .catch((error) => {
-        Alert.alert("Unable to sign in.");
-      });
-  };
-	
+				});
+				Alert.alert("Signed in Successfully!");
+			})
+			.catch((error) => {
+				Alert.alert("Unable to sign in.");
+			});
+	};
+
 	return (
 		<View style={styles.container}>
 			<ImageBackground source={image} resizeMode="cover" style={styles.image}>
