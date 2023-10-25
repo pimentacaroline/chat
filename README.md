@@ -5,6 +5,10 @@
   <h1><b>Chat App</b></h1>
 </div>
 
+<div align="center">
+  <img src='https://github.com/pimentacaroline/chat-app/blob/master/assets/Background.png' alt='project logo' style='max-width: 50%'/>
+</div>
+
 <!-- TABLE OF CONTENTS -->
 
 # Table of Contents
