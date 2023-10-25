@@ -3,9 +3,12 @@ import { KeyboardAvoidingView, Platform } from 'react-native';
 import { GiftedChat, Bubble, InputToolbar } from "react-native-gifted-chat";
 import { collection, addDoc, onSnapshot, query, orderBy } from "firebase/firestore";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import CustomActions from './CustomActions';
+import MapView from 'react-native-maps';
+
 
 // Chat page component
-const Chat = ({ route, navigation, db, isConnected }) => {
+const Chat = ({ route, navigation, db, isConnected, storage }) => {
 
   const { name, color, userID } = route.params;
   const [messages, setMessages] = useState([]);
@@ -36,9 +39,7 @@ const Chat = ({ route, navigation, db, isConnected }) => {
 
     // Clean up code
     return () => {
-      if (unsubMessages) {
-        unsubMessages();
-      }
+      if (unsubMessages) {unsubMessages();}
     };
   }, [isConnected]);
 
@@ -55,7 +56,7 @@ const Chat = ({ route, navigation, db, isConnected }) => {
     }
   };
 
-  //Called when user sends a message
+  //Add new messages to the setMessages state array
   const onSend = (newMessages) => {
     addDoc(collection(db, "messages"), newMessages[0])
   }
@@ -76,9 +77,34 @@ const Chat = ({ route, navigation, db, isConnected }) => {
   }
 
   const renderInputToolbar = (props) => {
-    if (isConnected) return <InputToolbar {...props} />;
+    if (isConnected === true) return <InputToolbar {...props} />;
     else return null;
-   }
+  }
+
+  const renderCustomActions = (props) => {
+    return <CustomActions userID={userID} storage={storage} {...props} />;
+  }
+
+  const renderCustomView = (props) => {
+    const { currentMessage} = props;
+    if (currentMessage.location) {
+      return (
+          <MapView
+            style={{width: 150,
+              height: 100,
+              borderRadius: 13,
+              margin: 3}}
+            region={{
+              latitude: currentMessage.location.latitude,
+              longitude: currentMessage.location.longitude,
+              latitudeDelta: 0.0922,
+              longitudeDelta: 0.0421,
+            }}
+          />
+      );
+    }
+    return null;
+  }
 
   //Render the chat ineterface
   return (
@@ -88,6 +114,8 @@ const Chat = ({ route, navigation, db, isConnected }) => {
         renderBubble={renderBubble}
         renderInputToolbar={renderInputToolbar}
         onSend={messages => onSend(messages)}
+        renderActions={renderCustomActions}
+        renderCustomView={renderCustomView}
         user={{
           _id: userID,
           name: name,
