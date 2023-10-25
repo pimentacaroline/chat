@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { initializeApp } from "firebase/app";
 import { getFirestore, disableNetwork, enableNetwork } from "firebase/firestore";
 import { useEffect } from "react";
+<<<<<<< Updated upstream
 import { useNetInfo }from '@react-native-community/netinfo';
 import { LogBox, Alert } from 'react-native';
 import { getStorage } from "firebase/storage";
@@ -14,6 +15,9 @@ const Stack = createNativeStackNavigator();
 //Prevents the warning stating "AsyncStorage has been extracted from…" from appearing
 LogBox.ignoreLogs(["AsyncStorage has been extracted from"]);
 
+=======
+import { useNetInfo } from '@react-native-community/netinfo';
+>>>>>>> Stashed changes
 
 const App = () => {
 
