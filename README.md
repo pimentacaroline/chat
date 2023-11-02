@@ -76,7 +76,8 @@ To set up a database for this project:
 1. Create and sign-up for a database on https://firebase.google.com/
 2. install firebase in your project directory: npm install firebase.
 3. import personal firebase config from project settings tab in firebase console into App.js (replace existing code).
-4. within firebase database rules adjust `allow read, write: if false;` to `allow read, write: if true;`, then publish.
+4. within firebase database rules adjust `allow read, write: if false;` to `allow read, write: if true;`.
+5. Create a file called `secret.json`, and add there your Firebase data. (you can see an example of the data in the file `secret.json.example`.
 
 
 ### Android Studio
