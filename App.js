@@ -5,29 +5,24 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { initializeApp } from "firebase/app";
 import { getFirestore, disableNetwork, enableNetwork } from "firebase/firestore";
 import { useEffect } from "react";
-<<<<<<< Updated upstream
 import { useNetInfo }from '@react-native-community/netinfo';
 import { LogBox, Alert } from 'react-native';
 import { getStorage } from "firebase/storage";
+import * as myConfig from './secret.json'
 
 const Stack = createNativeStackNavigator();
 
-//Prevents the warning stating "AsyncStorage has been extracted from…" from appearing
-LogBox.ignoreLogs(["AsyncStorage has been extracted from"]);
-
-=======
-import { useNetInfo } from '@react-native-community/netinfo';
->>>>>>> Stashed changes
+LogBox.ignoreAllLogs();
 
 const App = () => {
 
   const firebaseConfig = {
-    apiKey: "AIzaSyDxnDo-XvS8E_NSYe97VXQk6iZow7TW14I",
-    authDomain: "chat-app-47693.firebaseapp.com",
-    projectId: "chat-app-47693",
-    storageBucket: "chat-app-47693.appspot.com",
-    messagingSenderId: "569258751609",
-    appId: "1:569258751609:web:039c3ccf4f65c5433b06a8"
+    apiKey: myConfig.apiKey,
+    authDomain: myConfig.authDomain,
+    projectId: myConfig.projectId,
+    storageBucket: myConfig.storageBucket,
+    messagingSenderId: myConfig.messagingSenderId,
+    appId: myConfig.appId
   };
 
   // Initialize Firebase

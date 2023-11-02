@@ -77,9 +77,22 @@ const Chat = ({ route, navigation, db, isConnected, storage }) => {
   }
 
   const renderInputToolbar = (props) => {
-    if (isConnected === true) return <InputToolbar {...props} />;
-    else return null;
-  }
+    if (isConnected === true) {
+      return (
+        <InputToolbar
+          {...props}
+          containerStyle={{
+            backgroundColor: 'white', // Change the background color as needed
+            padding: 10, // Adjust padding
+            ...(Platform.OS === 'ios' && { borderBottomWidth: 1, borderBottomColor: 'lightgray' }), // Add iOS-specific styling
+          }}
+        />
+      );
+    } else {
+      return null;
+    }
+  };
+  
 
   const renderCustomActions = (props) => {
     return <CustomActions userID={userID} storage={storage} {...props} />;
