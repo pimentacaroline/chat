@@ -82,9 +82,7 @@ const Chat = ({ route, navigation, db, isConnected, storage }) => {
         <InputToolbar
           {...props}
           containerStyle={{
-            backgroundColor: 'white', // Change the background color as needed
-            padding: 10, // Adjust padding
-            ...(Platform.OS === 'ios' && { borderBottomWidth: 1, borderBottomColor: 'lightgray' }), // Add iOS-specific styling
+            paddingVertical: Platform.OS === 'ios' ? 5 : 0,
           }}
         />
       );
